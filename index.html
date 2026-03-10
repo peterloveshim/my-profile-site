@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장형수 - 프론트엔드 개발자</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/images/logo/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/logo/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/logo/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/logo/apple-touch-icon.png"
+    />
+    <meta name="theme-color" content="#020817" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="장형수 - 프론트엔드 개발자" />
+    <meta
+      property="og:description"
+      content="10년 차 프론트엔드 개발자. React, Next.js, Node.js 등 다양한 기술을 활용해 프로젝트를 진행합니다."
+    />
+    <meta property="og:image" content="/assets/images/logo/logo.png" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family:
+          "Noto Sans KR",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        font-size: 18px;
+      }
+      .sidebar {
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        box-shadow: -100vw 0 0 100vw #020817;
+      }
+      .content-wrapper {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(148, 163, 184, 0.5) transparent;
+      }
+      .content-wrapper::-webkit-scrollbar {
+        width: 6px;
+      }
+      .content-wrapper::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .content-wrapper::-webkit-scrollbar-thumb {
+        background-color: rgba(148, 163, 184, 0.5);
+        border-radius: 3px;
+      }
+      .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #10b981;
+        transition: width 0.3s ease;
+      }
+      .nav-link.active {
+        color: #10b981;
+      }
+      .nav-link.active::before {
+        width: 30px;
+      }
+      .skill-tag {
+        display: inline-block;
+        background-color: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        color: #86efac;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .external-link::after {
+        content: " ↗";
+        font-size: 0.875rem;
+      }
+      .section {
+        scroll-margin-top: 2rem;
+      }
+      .project-card {
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: start;
+      }
+      .project-card:hover {
+        background-color: rgba(148, 163, 184, 0.08);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+      .project-image {
+        width: 200px;
+        height: auto;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        flex-shrink: 0;
+      }
+      .project-card {
+        perspective: 1000px;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-900 text-white overflow-x-hidden">
+    <div class="flex h-screen max-w-[1400px] mx-auto w-full">
+      <!-- 좌측 패널 -->
+      <div
+        class="sidebar bg-slate-950 border-r border-slate-800 px-8 py-12 flex flex-col w-full md:w-2/5 lg:w-1/3"
+      >
+        <div class="flex-1">
+          <h1 class="text-5xl font-bold mb-4">장형수</h1>
+          <p class="text-xl text-emerald-400 mb-8">Frontend Developer</p>
+
+          <p class="text-gray-300 text-lg leading-relaxed mb-12">
+            프로젝트에 대한 능동적이고 적극적인 이해, 주어진 환경과 자원에 따라
+            필요한 기술을 학습하며 적용하는 일에 열린 태도, 팀원들과 효과적인
+            소통을 추구합니다.
+          </p>
+
+          <!-- 네비게이션 -->
+          <nav class="space-y-6">
+            <a
+              href="#about"
+              class="nav-link active text-gray-300 hover:text-emerald-400 block text-sm tracking-widest uppercase"
+            >
+              About
+            </a>
+            <a
+              href="#experience"
+              class="nav-link text-gray-300 hover:text-emerald-400 block text-sm tracking-widest uppercase"
+            >
+              Experience
+            </a>
+            <a
+              href="#projects"
+              class="nav-link text-gray-300 hover:text-emerald-400 block text-sm tracking-widest uppercase"
+            >
+              Projects
+            </a>
+          </nav>
+        </div>
+
+        <!-- 하단 소셜 링크 -->
+        <div class="flex space-x-4">
+          <a
+            href="https://github.com/onlyhisson"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition-colors"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.001 12.001 0 0024 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="mailto:onlyhisson@gmail.com"
+            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition-colors"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 우측 컨텐츠 -->
+      <div
+        class="content-wrapper overflow-y-auto flex-1 px-8 md:px-12 py-12 md:w-3/5 lg:w-2/3"
+      >
+        <!-- About 섹션 -->
+        <section id="about" class="section mb-20">
+          <h2 class="text-2xl font-bold text-emerald-400 mb-8">ABOUT</h2>
+          <div class="text-gray-300 space-y-4">
+            <p>
+              10년 차 개발자로 스타트업에서 웹과 앱을
+              디자인/개발/배포/운영하였습니다. 대부분 웹 서비스 개발을
+              담당했으며 필요에 따라 디자인도 같이 겸할 때가 있었습니다.
+            </p>
+            <p>
+              부동산, 물류, 암호화폐, 스마트팜 등 여러 산업군에서 프론트엔드 및
+              풀스택 개발 경험이 있습니다. 최근에는 프론트엔드 개발에 집중하고
+              있습니다.
+            </p>
+          </div>
+        </section>
+
+        <!-- Experience 섹션 -->
+        <section id="experience" class="section mb-20">
+          <h2 class="text-2xl font-bold text-emerald-400 mb-8">EXPERIENCE</h2>
+          <div class="space-y-12">
+            <!-- 원티드긱스 -->
+            <div class="border-l-2 border-emerald-400 pl-6">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3 class="text-lg font-bold">
+                    <a
+                      href="https://www.wanted.co.kr/gigs"
+                      target="_blank"
+                      class="external-link hover:text-emerald-400 transition-colors"
+                      >원티드긱스</a
+                    >
+                  </h3>
+                  <p class="text-lg text-gray-400">프리랜서</p>
+                </div>
+                <span class="text-gray-300 text-lg font-semibold"
+                  >2024. 05 - 현재</span
+                >
+              </div>
+              <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                <li>• 프로젝트 단위 개발</li>
+                <li>• CJ대한통운 사내 관제 시스템 개발</li>
+                <li>• SKDND 주거 임대 서비스 개발</li>
+              </ul>
+              <div>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">TypeScript</span>
+              </div>
+            </div>
+
+            <!-- 해커스홀딩스 -->
+            <div class="border-l-2 border-emerald-400 pl-6">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3 class="text-lg font-bold">
+                    <a
+                      href="http://hackers.iwinv.net/"
+                      target="_blank"
+                      class="external-link hover:text-emerald-400 transition-colors"
+                      >해커스홀딩스</a
+                    >
+                  </h3>
+                  <p class="text-lg text-gray-400">
+                    연구개발 3부 · 과장 (42개월)
+                  </p>
+                </div>
+                <span class="text-gray-300 text-lg font-semibold"
+                  >2019. 09 - 2023. 04</span
+                >
+              </div>
+              <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                <li>
+                  • 주로 암호화폐 관련 서비스 개발에 참여, 여러 포지션에 걸쳐서
+                  웹 및 앱을 개발
+                </li>
+                <li>• 거래소 연동 지갑 시스템</li>
+                <li>
+                  • 암호화폐 시세 정보 수집 및 트레이딩뷰를 이용한 거래소 차트
+                  구현
+                </li>
+                <li>• 실시간 암호화폐 정보를 위한 카카오톡 봇</li>
+                <li>• 상품 결제를 위한 PG 앱 개발 및 구글 플레이스토어 출시</li>
+                <li>• 청소 중개 서비스 관리자 웹프로그램</li>
+              </ul>
+              <div>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">React Native</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">MariaDB</span>
+              </div>
+            </div>
+
+            <!-- 한국영상솔루션 & 하나로팜 -->
+            <div class="border-l-2 border-emerald-400 pl-6">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3 class="text-lg font-bold">한국영상솔루션 & 하나로팜</h3>
+                  <p class="text-lg text-gray-400">선임연구원 (12개월)</p>
+                </div>
+                <span class="text-gray-300 text-lg font-semibold"
+                  >2018. 06 - 2019. 05</span
+                >
+              </div>
+              <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                <li>• 농장 자율 재배(스마트팜)를 목표로 서비스를 개발</li>
+              </ul>
+              <div>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">jQuery</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">MariaDB</span>
+              </div>
+            </div>
+
+            <!-- 유비아이오티 -->
+            <div class="border-l-2 border-emerald-400 pl-6">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3 class="text-lg font-bold">
+                    <a
+                      href="http://www.ubiot.co.kr/"
+                      target="_blank"
+                      class="external-link hover:text-emerald-400 transition-colors"
+                      >유비아이오티</a
+                    >
+                  </h3>
+                  <p class="text-lg text-gray-400">사원 (21개월)</p>
+                </div>
+                <span class="text-gray-300 text-lg font-semibold"
+                  >2014. 04 - 2015. 12</span
+                >
+              </div>
+              <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                <li>• KT 모바일 회원의 USIM 정보 관리 시스템 개발 및 운영</li>
+                <li>• 협력사로 시작 후 합류함</li>
+              </ul>
+              <div>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">jQuery</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">Oracle</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects 섹션 -->
+        <section id="projects" class="section mb-20">
+          <h2 class="text-2xl font-bold text-emerald-400 mb-8">PROJECTS</h2>
+          <div class="space-y-8">
+            <!-- 부동산 임대 플랫폼 -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="/assets/images/betterliving.png"
+                alt="부동산 임대 플랫폼"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      <a
+                        href="https://betterliving.kr/"
+                        target="_blank"
+                        class="external-link hover:text-emerald-400 transition-colors"
+                        >부동산 임대 플랫폼 - 프론트엔드</a
+                      >
+                    </h3>
+                    <p class="text-lg text-gray-400">디앤디프라퍼티솔루션</p>
+                    <p class="text-lg text-gray-400">
+                      자사 부동산 임대 플랫폼(사용자 및 관리자) 웹 프로그램
+                    </p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2024. 08 - 2025. 12</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>• 사용자 - 임대할 조건 입력 및 예약 진행</li>
+                  <li>
+                    • 관리자 - 회원관리, 사이트 및 호실관리, 계약관리, 결제관리,
+                    쿠폰관리 등
+                  </li>
+                </ul>
+                <div>
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">Next.js</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CJ 창고 온습도 -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="/assets/images/cj.jpg"
+                alt="CJ 창고"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      창고 온습도 관제 웹 프로그램 - 프론트엔드
+                    </h3>
+                    <p class="text-lg text-gray-400">CJ대한통운</p>
+                    <p class="text-lg text-gray-400">
+                      사내 창고 온습도 정보 모니터링 관리자 시스템
+                    </p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2024. 05 - 2024. 06</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>
+                    • 각 창고 온습도 및 기타 데이터 정보 연동 및 대시보드 출력
+                  </li>
+                </ul>
+                <div>
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">Next.js</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 비트코인 지갑 -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="/assets/images/currency-explorer.png"
+                alt="비트코인 지갑"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      <a
+                        href="https://www.currency-explorer.com"
+                        target="_blank"
+                        class="external-link hover:text-emerald-400 transition-colors"
+                        >비트코인 지갑 시스템 - 풀스택</a
+                      >
+                    </h3>
+                    <p class="text-lg text-gray-400">
+                      비트코인 지갑 시스템 프로젝트
+                    </p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2023. 08 - 2024</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>
+                    • API - 블록 및 트랜잭션 정보 조회, 수수료 조회, 시세
+                    조회(30분 간격)
+                  </li>
+                  <li>
+                    • Bitcoin 스케쥴러 - 블록 및 트랜잭션 정보 저장, memory pool
+                    분당 정보 편집 & 수집(트랜잭션 수수료 책정 위함)
+                  </li>
+                  <li>• 코인마켓캡 시세 정보 30분 간격 수집</li>
+                </ul>
+                <div>
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">Next.js</span>
+                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">NestJS</span>
+                  <span class="skill-tag">MariaDB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 거래소 지갑 -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="/assets/images/wallet_flow.png"
+                alt="거래소 지갑"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">거래소 지갑 시스템</h3>
+                    <p class="text-lg text-gray-400">
+                      거래소 지갑 시스템 프로젝트
+                    </p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2022. 10 - 2023. 04</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>• API - 지갑 주소 생성, 지갑 주소 유효성 확인</li>
+                  <li>
+                    • Bitcoin 스케쥴러 - 출금 처리(Transaction Batching), 입금
+                    확인(블록의 트랜잭션 스캔), 입출금 트랜잭션 컨펌 처리, UTXO
+                    의 spent 여부 확인(핫웨렛 출금시, 회원 지갑의 비트코인
+                    집금시 필요), memory pool 분당 정보 편집 & 수집(트랜잭션
+                    수수료 책정 위함)
+                  </li>
+                  <li>
+                    • Ethereum(+ERC20 Token) 스케쥴러 - 출금 처리, 입금
+                    확인(블록의 트랜잭션 스캔), 입출금 트랜잭션 컨펌 처리
+                  </li>
+                  <li>
+                    • Tron(+TRC20 Token) 스케쥴러 - 출금 처리, 입금 확인(블록의
+                    트랜잭션 스캔), 입출금 트랜잭션 컨펌 처리
+                  </li>
+                  <li>
+                    • 비트코인은 bitcoin core 에서 제공하는 프로그램을 RPC
+                    서버로 셋팅 후 요청할 수 있는 명령어를 Nodejs로 함수화 함
+                  </li>
+                  <li>• 트론은 tronweb 모듈 에서 제공하는 API 사용</li>
+                </ul>
+                <div>
+                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">web3.js</span>
+                  <span class="skill-tag">MariaDB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- PG 앱 -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="/assets/images/pairing.png"
+                alt="PG 앱"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      <a
+                        href="https://play.google.com/store/apps/details?id=com.pairingpay"
+                        target="_blank"
+                        class="external-link hover:text-emerald-400 transition-colors"
+                        >PG 앱 개발 · Android</a
+                      >
+                    </h3>
+                    <p class="text-lg text-gray-400">결제 앱 개발</p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2022. 02 - 2022. 04</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>• 상품 정보, 카드 정보로 결제 요청 및 처리 결과 조회</li>
+                  <li>• Google Play 스토어에 배포함</li>
+                </ul>
+                <div>
+                  <span class="skill-tag">React Native</span>
+                  <span class="skill-tag">Redux</span>
+                  <span class="skill-tag">styled-components</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 암호화폐 거래소 -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="assets/images/tv.png"
+                alt="거래소 차트"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      <a
+                        href="https://www.bitstoa.com/ex"
+                        target="_blank"
+                        class="external-link hover:text-emerald-400 transition-colors"
+                        >암호화폐 거래소</a
+                      >
+                    </h3>
+                    <p class="text-lg text-gray-400">암호화폐 거래소</p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2021. 02 - 2021. 08</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>• 시세 차트 부분(trading view) 구현</li>
+                  <li>
+                    • 소캣 통신으로 바이낸스 호가 및 시세 정보를 거래 메뉴
+                    화면에 출력
+                  </li>
+                </ul>
+                <div>
+                  <span class="skill-tag">PHP</span>
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+                  <span class="skill-tag">jQuery</span>
+                  <span class="skill-tag">MariaDB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 청소 중개 -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="assets/images/cleaning.jpeg"
+                alt="청소 중개 플랫폼"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">청소 중개 플랫폼 관리자</h3>
+                    <p class="text-lg text-gray-400">
+                      청소 중개 플랫폼 관리 페이지
+                    </p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2020. 10 - 2020. 12</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>• 지역별 청소 업체 및 매칭 건 조회</li>
+                  <li>
+                    • 결제 금액, 미결제 금액, 매칭건수 등 통계 대시보드 개발
+                  </li>
+                </ul>
+                <div>
+                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">Express.js</span>
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+                  <span class="skill-tag">jQuery</span>
+                  <span class="skill-tag">MariaDB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 스마트팜 -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="/assets/images/hanarofarm.png"
+                alt="스마트팜"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">스마트팜</h3>
+                    <p class="text-lg text-gray-400">스마트팜</p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2018. 06 - 2019. 05</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>• 농장 자율 재배를 위한 데이터 수집</li>
+                  <li>
+                    • 공공데이터포털에서 제공하는 외부 API를 이용해 스마트팜이
+                    있는 지역의 기상 정보 및 해당 지역의 센서 정보를 수집
+                  </li>
+                  <li>
+                    • 수집한 정보를 차트로 구현, 특정 시간 단위 데이터 갱신 처리
+                  </li>
+                  <li>
+                    • 기기 소캣 통신 - 웹에서 스마트팜 비밀하우스의 좌우 창
+                    개폐를 원격 처리
+                  </li>
+                  <li>• 작물 영양분을 주입하는 양액기 원격 조작</li>
+                </ul>
+                <div>
+                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">Express.js</span>
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+                  <span class="skill-tag">jQuery</span>
+                  <span class="skill-tag">MariaDB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SCMS -->
+            <div
+              class="project-card border border-slate-700 rounded-lg p-6 flex gap-6"
+            >
+              <img
+                src="assets/images/kt.webp"
+                alt="SCMS"
+                class="project-image"
+              />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      SCMS(스마트카드 통합관리 솔루션)
+                    </h3>
+                    <p class="text-lg text-gray-400">USIM 관리자 웹페이지</p>
+                  </div>
+                  <span
+                    class="text-gray-300 text-lg font-semibold whitespace-nowrap"
+                    >2014. 04 - 2015. 12</span
+                  >
+                </div>
+                <ul class="text-gray-300 text-lg space-y-1 mb-4">
+                  <li>• 모바일 USIM 관리자 시스템 개발 및 운영</li>
+                  <li>
+                    • KT 모바일 회원 USIM의 신용 카드 및 교통 카드 정보를 관리
+                  </li>
+                  <li>
+                    • 서버 하드웨어 교체 - 새 하드웨어에 프로그램 소스 이관 작업
+                    및 셋팅
+                  </li>
+                </ul>
+                <div>
+                  <span class="skill-tag">Java</span>
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+                  <span class="skill-tag">jQuery</span>
+                  <span class="skill-tag">Oracle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer
+          class="border-t border-slate-800 pt-8 pb-16 text-center text-gray-500 text-lg"
+        >
+          <p>© <span id="year">2024</span> 장형수. All rights reserved.</p>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      // 네비게이션 활성화 처리
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll(".section");
+      const contentWrapper = document.querySelector(".content-wrapper");
+
+      function updateActiveNav() {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (contentWrapper.scrollTop >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      contentWrapper.addEventListener("scroll", updateActiveNav);
+
+      // 부드러운 스크롤
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // 초기 활성화
+      updateActiveNav();
+
+      // 현재 년도 설정
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
